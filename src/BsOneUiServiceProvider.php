@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\BsOneUi;
+namespace Soap\BsOneUi;
 
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
