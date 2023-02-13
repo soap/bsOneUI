@@ -36,18 +36,18 @@ jobs:
       - name: Setup Laravel
         run: |
           composer create-project laravel/laravel:${{ matrix.laravel }} .
-          composer require soap/bsone-ui:@dev --no-interaction --no-update
-          composer config repositories.bsone-ui '{"type": "path", "url": "bsone-ui"}' --file composer.json
+          composer require soap/bs-one-ui:@dev --no-interaction --no-update
+          composer config repositories.bs-one-ui '{"type": "path", "url": "bs-one-ui"}' --file composer.json
 
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          path: 'bsone-ui'
+          path: 'bs-one-ui'
 
       - name: Install BsOneUi
         run: |
-          composer update "soap/bsone-ui" --prefer-dist --no-interaction --no-progress -W
-          php artisan bsone-uie:install ${{ matrix.stack }} ${{ matrix.args }}
+          composer update "soap/bs-one-ui" --prefer-dist --no-interaction --no-progress -W
+          php artisan bs-one-ui:install ${{ matrix.stack }} ${{ matrix.args }}
 
       - name: Install NPM dependencies
         if: matrix.stack != 'api'
